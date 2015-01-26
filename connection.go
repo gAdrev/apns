@@ -61,7 +61,8 @@ func (connection *Connection) CreateCertificate(certificate, key string, rawByte
 // Returns an error if there is a problem connecting to the gateway.
 func (connection *Connection) Connect() (err error) {
 	conf := &tls.Config{
-		Certificates: []tls.Certificate{connection.tlsCertificate},
+		Certificates:       []tls.Certificate{connection.tlsCertificate},
+		InsecureSkipVerify: true,
 	}
 	conn, err := net.Dial("tcp", connection.gateway)
 	if err != nil {
