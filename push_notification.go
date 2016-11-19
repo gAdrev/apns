@@ -14,8 +14,11 @@ import (
 // Push commands always start with command value 1.
 const PUSH_COMMAND_VALUE = 1
 
-// Your total notification payload cannot exceed 256 bytes.
-const MAX_PAYLOAD_SIZE_BYTES = 256
+// Your total notification payload cannot exceed 2048 bytes.
+// this limit was updated for iOS 8, and further increased
+// for the next version. We aim for iOS 8+ compatibility,
+// and thus set that limit.
+const MAX_PAYLOAD_SIZE_BYTES = 2048
 
 // Every push notification gets a pseudo-unique identifier;
 // this establishes the upper boundary for it. Apple will return
